@@ -6,11 +6,15 @@ const morgan = require('morgan');
 
 dotenv.config({path: './config/config.env'});
 
+const transactions = require('./routes/transactions');
+
 // Initialize Application
 const app = express();
 
-// Create a Simple Route
-app.get('/', (req, res) => res.send('Hakuna Matata'));
+// Create a Simple Route to test in PostMan prior to building a transaction file
+// app.get('/', (req, res) => res.send('Hakuna Matata'));
+
+app.use('/api/v1/transactions', transactions);
 
 const PORT = process.env.PORT || 5000;
 
