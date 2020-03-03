@@ -15,6 +15,8 @@ const transactions = require('./routes/transactions');
 // Initialize Application
 const app = express();
 
+app.use(express.json());
+
 // Create a Simple Route to test in PostMan prior to building a transaction file
 // app.get('/', (req, res) => res.send('Hakuna Matata'));
 
