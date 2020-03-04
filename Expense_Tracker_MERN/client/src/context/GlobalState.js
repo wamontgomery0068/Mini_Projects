@@ -40,7 +40,7 @@ export const GlobalProvider = ({ children }) => {
 
             dispatch({
                 type: 'TRANSACTION_ERROR',
-                payload: error.response.data.error
+                payload: err.response.data.error
             });
             
         }
@@ -68,6 +68,9 @@ export const GlobalProvider = ({ children }) => {
     
         <GlobalContext.Provider value = {{
             transactions:state.transactions,
+            error: state.error,
+            loading: state.loading,
+            getTransactions,
             deleteTransaction,
             addTransaction
         }}>
