@@ -13,7 +13,7 @@ export default (state, action) => {
                 // Use Spread Operator here and then send the current state
                 ...state,
                 // For each transaction, it takes in an arrow function, dot ID is not equal to the action dot payload
-                transactions: state.transactions.filter(transaction => transaction.id !== 
+                transactions: state.transactions.filter(transaction => transaction._id !== 
                 action.payload)
             }
 

@@ -15,6 +15,10 @@ const transactions = require('./routes/transactions');
 // Initialize Application
 const app = express();
 
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'));
+}
+
 app.use(express.json());
 
 // Create a Simple Route to test in PostMan prior to building a transaction file
