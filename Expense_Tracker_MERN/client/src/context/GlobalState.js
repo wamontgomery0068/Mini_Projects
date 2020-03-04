@@ -48,11 +48,27 @@ export const GlobalProvider = ({ children }) => {
 
     // ** Actions **
     // These Actions are going to make calls to our Reducer
-    function deleteTransaction(id) {
-        dispatch({
-            type: 'DELETE_TRANSACTION',
-            payload: id
-        });
+    async function deleteTransaction(id) {
+
+        try {
+            
+            await axios.delete(`/api/v1/transactions/${id}`);
+
+            dispatch({
+                type: 'DELETE_TRANSACTION',
+                payload: id
+            });
+
+        } catch (err) {
+
+            
+            dispatch({
+                type: 'TRANSACTION_ERROR',
+                payload: err.response.data.error
+            });
+            
+        }
+
     }
 
     // ** Actions **
