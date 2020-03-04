@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
+import axios from 'axios';
 
 // Initial State
 // ** Hard Coded Examples **
@@ -22,6 +23,16 @@ export const GlobalContext = createContext(initialState);
 // Provider Component
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState)
+
+    async function getTransactions() {
+        try {
+
+            const res = await axios.get('/api/v1/transaction');
+            
+        } catch (err) {
+            
+        }
+    }
 
     // ** Actions **
     // These Actions are going to make calls to our Reducer
