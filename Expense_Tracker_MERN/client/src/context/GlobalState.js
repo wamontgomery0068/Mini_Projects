@@ -14,7 +14,9 @@ import axios from 'axios';
 // };
 
 const initialState = {
-    transactions: []
+    transactions: [],
+    error: null,
+    loading: true
 };
 
 // Create Context
@@ -27,9 +29,19 @@ export const GlobalProvider = ({ children }) => {
     async function getTransactions() {
         try {
 
-            const res = await axios.get('/api/v1/transaction');
+            const res = await axios.get('/api/v1/transactions');
+
+            dispatch({
+                type: 'GET_TRANSACTIONS',
+                payload: res.data.data
+            });
             
         } catch (err) {
+
+            dispatch({
+                type: 'TRANSACTION_ERROR',
+                payload: error.response.data.error
+            });
             
         }
     }
