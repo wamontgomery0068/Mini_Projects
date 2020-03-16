@@ -4,14 +4,18 @@
 <div class="row mt-5">
 
     <div class="col-md-6 m-auto">
-
+        
+        <!-- WAM: **** User Register Card **** -->
       <div class="card card-body">
-          
+
         <h1 class="text-center mb-3">
           <i class="fas fa-user-plus"></i> Register
         </h1>
-        <% include ./partials/messages %>
+        
+        <!-- WAM: **** Form Starts Here **** -->
         <form action="/users/register" method="POST">
+
+            <!-- WAM: **** User Enter Name **** -->
           <div class="form-group">
             <label for="name">Name</label>
             <input
@@ -23,6 +27,8 @@
               value="<%= typeof name != 'undefined' ? name : '' %>"
             />
           </div>
+
+          <!-- WAM: **** User Enter Email -->
           <div class="form-group">
             <label for="email">Email</label>
             <input
@@ -34,6 +40,8 @@
               value="<%= typeof email != 'undefined' ? email : '' %>"
             />
           </div>
+
+          <!-- WAM: **** User Enter Password **** -->
           <div class="form-group">
             <label for="password">Password</label>
             <input
@@ -45,6 +53,8 @@
               value="<%= typeof password != 'undefined' ? password : '' %>"
             />
           </div>
+
+          <!-- WAM: **** User Confirm Password **** -->
           <div class="form-group">
             <label for="password2">Confirm Password</label>
             <input
@@ -56,11 +66,19 @@
               value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
             />
           </div>
+
+          <!-- WAM: **** User Register Button **** -->
           <button type="submit" class="btn btn-primary btn-block">
             Register
           </button>
+
         </form>
+        <!-- WAM: **** Form Ends Here **** -->
+
         <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+
       </div>
+
     </div>
+
   </div>
