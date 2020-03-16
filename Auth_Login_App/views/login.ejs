@@ -1,0 +1,62 @@
+<!-- ***** Login View ***** -->
+
+<!-- Bootstrap Markup -->
+<div class="row mt-5">
+
+    <div class="col-md-6 m-auto">
+
+        <!-- WAM: **** User Login Card **** -->
+      <div class="card card-body">
+
+        <h1 class="text-center mb-3">
+
+            <!-- WAM: ** Login Icon ** -->
+            <i class="fas fa-sign-in-alt"></i>  Login
+            
+        </h1>
+        
+        <!-- WAM: **** Form Starts Here **** -->
+        <form action="/users/login" method="POST">
+
+          <!-- WAM: **** User Enter Email **** -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email"
+            />
+          </div>
+
+          <!-- WAM: **** User Enter Password **** -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter Password"
+            />
+          </div>
+
+          <!-- WAM: **** User Login Button **** -->
+          <button type="submit" class="btn btn-primary btn-block">
+            Login
+          </button>
+
+        </form>
+        <!-- WAM: **** Form Ends Here **** -->
+
+        <!-- WAM: **** User directed back to Register View **** -->
+        <p class="lead mt-4">
+          No Account? <a href="/users/register">Register</a>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
