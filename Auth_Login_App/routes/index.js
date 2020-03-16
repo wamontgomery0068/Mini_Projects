@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // ** Route Methods**
-router.get('/', (req, res) => res.send('Hello There'));
+router.get('/', (req, res) => res.render('welcome'));
 
 
 module.exports = router;
