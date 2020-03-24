@@ -2,6 +2,9 @@
 const express = require('express');
 const router = express.Router();
 
+// User Model
+const User = require('../models/userModel');
+
 // Login Page
 router.get('/login', (req, res) => res.render('login'));
 
@@ -37,9 +40,24 @@ router.post('/register', (req, res) => {
             email,
             password,
             password2
-        })
+        });
     } else {
-        res.send(' Passed ');
+        // WAM: **** If Validation has Passed ****
+        User.findOne({ email: email }).then(user => {
+            // Check 4 Specific User
+            if(user) {
+                // WAM: **** Create an Error Message if User is Already Registered ****
+                errors.push({ msg: 'Email is already registered' });
+                // User Exists
+                res.render('register', {
+                    errors,
+                    name,
+                    email,
+                    password,
+                    password2
+                });
+            }
+        });
     }
 
 });
