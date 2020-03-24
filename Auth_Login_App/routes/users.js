@@ -1,6 +1,7 @@
 // Dependency's Required
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 // User Model
 const User = require('../models/userModel');
@@ -64,3 +65,7 @@ router.post('/register', (req, res) => {
 
 
 module.exports = router;
+
+// WAM: ** Notes **
+// What is BcryptJS used for?
+// - Bcrypt is used to salt and hash user passwords, so that we avoid storing plain-text passwords in the database. 
